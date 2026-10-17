@@ -1,0 +1,176 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#0b1825">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; img-src data:; connect-src 'none'; media-src 'none'; font-src 'none'; base-uri 'none'; form-action 'none'; object-src 'none'">
+<title>Midnight Ferry · a small window elsewhere</title>
+<style>
+:root{color-scheme:dark;--ink:#eee8da;--muted:#bcc4c7;--warm:#eac18a;--line:#ffffff24;--glass:#0b1925d9}
+*{box-sizing:border-box}html,body{margin:0;width:100%;height:100%;overflow:hidden;background:#0b1825;color:var(--ink);font:14px/1.5 system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}button,input{font:inherit}button{color:inherit;cursor:pointer}button:focus-visible,input:focus-visible,a:focus-visible{outline:2px solid #eac18a;outline-offset:5px}button{touch-action:manipulation}button:disabled{opacity:.45;cursor:default}button:hover:not(:disabled){border-color:#eac18a99;color:#fff}#world{display:block;width:100%;height:100%;position:fixed;inset:0}#shade{position:fixed;inset:0;pointer-events:none;background:linear-gradient(180deg,#07131f9c 0%,transparent 40%,transparent 65%,#06131fd9 100%);box-shadow:inset 0 0 130px #030b1770}.top{position:absolute;left:clamp(22px,4.5vw,76px);top:clamp(24px,5vh,56px);pointer-events:none;max-width:440px}.eyebrow{text-transform:uppercase;letter-spacing:.24em;font-size:10px;font-weight:600;color:var(--warm);margin:0 0 18px;display:flex;align-items:center;gap:12px}.eyebrow:before{content:"";width:23px;height:1px;background:var(--warm)}h1{font:normal clamp(44px,5.1vw,76px)/1.02 Georgia,"Times New Roman",serif;letter-spacing:-.045em;margin:0 0 16px;text-shadow:0 2px 30px #06101d80}h1 em{font-weight:normal;color:#eac18a;font-style:italic}.intro{color:#c9d0d1;max-width:280px;font-size:12px;letter-spacing:.02em;line-height:1.8;margin:0}.corner{position:absolute;top:40px;right:clamp(22px,4.5vw,76px);display:flex;align-items:center;gap:10px}.corner button,.small-btn{border:1px solid var(--line);background:#101e296b;border-radius:50%;width:38px;height:38px;display:grid;place-items:center;padding:0;backdrop-filter:blur(10px)}.corner svg{width:15px;height:15px;fill:none;stroke:currentColor;stroke-width:1.4}.status{position:absolute;right:clamp(22px,4.5vw,76px);top:98px;text-align:right;color:#c7cdcf;font:10px/1.8 ui-monospace,monospace;letter-spacing:.1em}.status b{color:#eac18a;font-weight:400}.bottom{position:absolute;bottom:max(28px,env(safe-area-inset-bottom));left:50%;transform:translateX(-50%);width:min(100% - 40px,920px);display:flex;flex-direction:column;align-items:center;gap:20px}.caption{font:italic 16px/1.5 Georgia,serif;letter-spacing:.015em;text-align:center;color:#e3daca;margin:0;text-shadow:0 2px 12px #000}.controls{display:flex;align-items:center;justify-content:center;gap:6px;padding:10px 12px;border:1px solid #ffffff20;border-radius:100px;background:var(--glass);box-shadow:0 12px 50px #0003;backdrop-filter:blur(16px);max-width:100%}.controls button{border:1px solid transparent;background:transparent;border-radius:24px;white-space:nowrap;font-size:11px;padding:10px 13px;line-height:1.2;min-height:36px;color:#c7d1d4}.controls button[aria-pressed="true"]{background:#ffffff0e;color:#f5d6a5;border-color:#eac18a36}.controls .lantern-button{background:#eac18a!important;color:#1a2630!important;border-color:#eac18a!important;font-weight:650;padding:11px 19px}.divider{height:22px;width:1px;background:var(--line);margin:0 4px;flex-shrink:0}.volume{accent-color:#eac18a;width:55px;height:14px}.quiet-hint{font:9px/1.5 ui-monospace,monospace;letter-spacing:.05em;color:#c3cccf;margin:0;opacity:.7}.quiet-hint kbd{font:inherit;color:#e8d8bf}.restore{position:absolute;bottom:20px;right:20px;border:1px solid var(--line);border-radius:40px;background:#0b1925d9;padding:9px 16px;font-size:11px;opacity:0;pointer-events:none;color:var(--ink)}body.ui-hidden .chrome{opacity:0;pointer-events:none}body.ui-hidden .restore{opacity:.7;pointer-events:auto}.chrome{transition:opacity .3s}dialog{position:fixed;inset:0;margin:auto;border:1px solid #eac18a40;background:#101e2af5;color:var(--ink);border-radius:20px;padding:32px;width:min(420px,calc(100% - 36px));box-shadow:0 25px 100px #0008}dialog::backdrop{background:#02091488;backdrop-filter:blur(6px)}dialog h2{font:normal 31px/1.15 Georgia,serif;margin:12px 0 16px;letter-spacing:-.03em}dialog p{font-size:12px;color:#c0c9ce;line-height:1.8}dialog label{display:block;color:#e9d0a9;font-size:11px;margin:20px 0 9px}dialog input[type=text]{width:100%;border:1px solid #ffffff32;border-radius:9px;background:#ffffff06;padding:13px;color:var(--ink);font-size:13px}dialog .actions{display:flex;justify-content:space-between;gap:12px;margin-top:22px}dialog button{border:1px solid var(--line);border-radius:30px;padding:10px 18px;background:transparent;font-size:12px}dialog button.primary{background:#eac18a;color:#15222c;border-color:#eac18a}dialog .eyebrow{margin:0}dialog ul{padding-left:19px;font-size:12px;line-height:2;color:#c7d0d4}dialog kbd{color:#eac18a}.toast{position:absolute;bottom:180px;left:50%;transform:translateX(-50%);max-width:min(460px,calc(100% - 44px));padding:10px 20px;border:1px solid #eac18a30;border-radius:30px;background:#10202bec;color:#f2d5ae;text-align:center;font:italic 15px/1.5 Georgia,serif;opacity:0;pointer-events:none;transition:opacity .7s;overflow-wrap:anywhere}.toast.show{opacity:1}.sr-only{position:absolute;width:1px;height:1px;padding:0;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}noscript{position:absolute;inset:25%;background:#10202b;padding:20px;z-index:5}
+@media(max-width:680px){.top{top:30px;left:24px;max-width:65%}.eyebrow{font-size:8px;letter-spacing:.18em;margin-bottom:15px}h1{font-size:49px}.intro{font-size:11px;max-width:210px}.corner{top:26px;right:20px;gap:6px}.corner button{width:32px;height:32px}.status{right:22px;top:74px;font-size:8px;letter-spacing:.02em}.bottom{bottom:max(20px,env(safe-area-inset-bottom));width:calc(100% - 28px);gap:15px}.controls{border-radius:23px;flex-wrap:wrap;gap:3px;padding:10px;max-width:430px}.controls button{padding:10px 11px;font-size:10px;min-height:36px}.controls .lantern-button{padding:11px 16px}.divider{margin:0 1px}.volume{width:45px}.caption{font-size:14px;max-width:300px}.quiet-hint{display:none}.toast{bottom:200px}.corner #fullscreen{display:none}}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{transition:none!important;animation:none!important}}
+</style>
+</head>
+<body>
+<canvas id="world" role="img" aria-label="An illustrated harbour at night: a warm-lit café, a passing ferry, a lighthouse and lanterns on the water."></canvas>
+<div id="shade"></div>
+<header class="top chrome"><p class="eyebrow">A small window elsewhere</p><h1>Midnight<br><em>Ferry.</em></h1><p class="intro">No destination. No catching up.<br>Just the water, and a little time.</p></header>
+<div class="corner chrome"><button id="help" aria-label="About and keyboard shortcuts" title="About">?</button><button id="fullscreen" aria-label="Enter full screen" title="Full screen"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M7 3H3v4m10-4h4v4M3 13v4h4m10-4v4h-4"/></svg></button><button id="hide" aria-label="Hide controls" title="Hide controls (H)"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M2 10s3-5 8-5 8 5 8 5-3 5-8 5-8-5-8-5Z"/><circle cx="10" cy="10" r="2"/></svg></button></div>
+<div class="status chrome"><b id="time-label">23:47</b><br><span id="weather-label">a little rain</span><br><span>all is unhurried</span></div>
+<main class="bottom chrome"><p id="caption" class="caption">Somewhere, a light is still on for you.</p><nav class="controls" aria-label="Harbour controls"><button data-mood="night" aria-pressed="true">Midnight</button><button data-mood="blue" aria-pressed="false">Blue hour</button><button data-mood="dawn" aria-pressed="false">First light</button><span class="divider" aria-hidden="true"></span><button id="rain" aria-pressed="true" title="Rain (R)">Rain</button><button id="drift" aria-pressed="true" title="Animation (Space)">Drifting</button><button id="sound" aria-pressed="false" title="Sound (M)">Sound off</button><input id="volume" class="volume" type="range" min="0" max="100" value="35" aria-label="Sound volume"><span class="divider" aria-hidden="true"></span><button id="lantern" class="lantern-button">Float a lantern ↗</button></nav><p class="quiet-hint"><kbd>SPACE</kbd> pause · <kbd>M</kbd> sound · <kbd>R</kbd> rain · <kbd>H</kbd> hide controls &nbsp; / &nbsp; offline, and entirely yours</p></main>
+<button class="restore" id="restore" inert>Show controls · H</button>
+<output class="toast" id="toast" aria-live="polite"></output>
+<dialog id="lantern-dialog" aria-labelledby="lantern-title"><form method="dialog" id="lantern-form"><p class="eyebrow">A small letting go</p><h2 id="lantern-title">Leave it with the water.</h2><p>A thought, a wish, or nothing at all.<br>Your lantern will drift through this harbour for a while.</p><label for="thought">What would you like to set afloat? (optional)</label><input id="thought" type="text" maxlength="100" autocomplete="off" placeholder="Tomorrow can wait."><p>Private by design. Nothing is sent or saved. Your thought disappears when you close or refresh this page.</p><div class="actions"><button value="cancel" type="submit">Not just now</button><button id="launch" class="primary" value="launch" type="submit">Let it drift ↗</button></div></form></dialog>
+<dialog id="help-dialog" aria-labelledby="help-title"><p class="eyebrow">Midnight Ferry · v1.0</p><h2 id="help-title">You don't have to do anything.</h2><p>This little harbour is made of code, light and a few unhurried things. Stay as long as you like.</p><ul><li>Choose a time of day. Toggle rain, or pause the drift.</li><li>Sound is optional, generated here on your device.</li><li>Float a lantern, with or without a private thought.</li><li><kbd>Space</kbd> pause · <kbd>M</kbd> sound · <kbd>R</kbd> rain · <kbd>H</kbd> controls.</li><li>Press <kbd>Escape</kbd> to close a dialog or leave full screen.</li></ul><p>No network requests, trackers, downloaded fonts, cookies or app storage. Thoughts live only in this page's memory; your browser may still keep normal browsing history. Animation and sound rest when the tab is hidden. Reduced-motion preferences are respected.</p><form method="dialog"><button class="primary">Back to the harbour</button></form></dialog>
+<p id="announcement" class="sr-only" aria-live="polite"></p>
+<noscript>This harbour needs JavaScript enabled. It runs entirely on your device; no network connection is used.</noscript>
+<script>
+(()=>{'use strict';
+const $=s=>document.querySelector(s), canvas=$('#world'),ctx=canvas.getContext('2d',{alpha:false});
+if(!ctx){$('#caption').textContent='This browser cannot draw the harbour. Please try a current desktop browser.';return;}
+const motionQuery=matchMedia('(prefers-reduced-motion: reduce)');
+const state={mood:'night',rain:true,drift:!motionQuery.matches,sound:false,hidden:false,t:0,lanterns:[],toastTime:0};
+const palettes={
+ night:{sky:['#081421','#23384c','#7c6461'],water:['#253f4b','#102b3b','#0a1d2a'],haze:'#a1a4ab',moon:'#f8e6c0',land:'#172c38',back:'#30434d',front:'#132631',light:'#f2c282',accent:'#e4a375',time:'23:47',caption:'Somewhere, a light is still on for you.'},
+ blue:{sky:['#192f4b','#4e6c89','#c19eab'],water:['#4f687b','#243f58','#122a3d'],haze:'#b3b9d1',moon:'#f5ded2',land:'#233b4b',back:'#41586a',front:'#23333f',light:'#ffce97',accent:'#efb6a8',time:'20:16',caption:'The day is done. The water keeps its own hours.'},
+ dawn:{sky:['#5c6e89','#b6a8ac','#f3c695'],water:['#ad9a93','#546d7d','#2f4656'],haze:'#f6cab0',moon:'#ffe0a7',land:'#506473',back:'#75808b',front:'#354b58',light:'#ffd3a1',accent:'#f9bd91',time:'05:32',caption:'A new day, with nothing written on it yet.'}
+};
+let w=0,h=0,dpr=1,scale=1,offX=0,offY=0,last=0,drawn=0,audio=null,toastTimer=null;
+function seeded(seed){return()=>{seed=(Math.imul(seed,1664525)+1013904223)|0;return(seed>>>0)/4294967296;};}
+const rng=seeded(62817), stars=Array.from({length:70},()=>[rng()*1600,rng()*390,rng()*1.1+.3,rng()]);
+const panes=Array.from({length:28},()=>[rng()*1600,rng()*1000,rng()*2+1,rng()*100]);
+const rainLines=Array.from({length:150},()=>[rng()*1800,rng()*1200,rng()*18+12,rng()]);
+const buildings=[];let bx=310;while(bx<1270){const bw=24+rng()*55;buildings.push({x:bx,w:bw,h:28+rng()*65,seed:rng()*1000,gable:rng()>.5});bx+=bw+5+rng()*8;}
+function gradient(x0,y0,x1,y1,stops){const g=ctx.createLinearGradient(x0,y0,x1,y1);stops.forEach(([p,c])=>g.addColorStop(p,c));return g;}
+function rect(x,y,ww,hh,color){ctx.fillStyle=color;ctx.fillRect(x,y,ww,hh);}
+function path(points,color,stroke,width=1){ctx.beginPath();points.forEach(([x,y],i)=>i?ctx.lineTo(x,y):ctx.moveTo(x,y));if(color){ctx.closePath();ctx.fillStyle=color;ctx.fill();}if(stroke){ctx.strokeStyle=stroke;ctx.lineWidth=width;ctx.stroke();}}
+function line(x,y,x2,y2,c,width=1){path([[x,y],[x2,y2]],null,c,width);}
+function oval(x,y,rx,ry,color){ctx.beginPath();ctx.ellipse(x,y,rx,ry,0,0,Math.PI*2);ctx.fillStyle=color;ctx.fill();}
+function glow(x,y,r,color,strength=.4){const g=ctx.createRadialGradient(x,y,0,x,y,r);g.addColorStop(0,color+Math.round(strength*255).toString(16).padStart(2,'0'));g.addColorStop(1,color+'00');oval(x,y,r,r,g);}
+function text(s,x,y,size,color,font='Georgia',align='left'){ctx.font=`${size}px ${font}`;ctx.fillStyle=color;ctx.textAlign=align;ctx.fillText(s,x,y);ctx.textAlign='left';}
+function windowLight(x,y,ww,hh,lit,p){rect(x,y,ww,hh,lit?p.light:'#172b38');if(lit){rect(x+1,y+1,ww-2,hh*.35,'#fff1d14d');line(x+ww/2,y,x+ww/2,y+hh,'#55473e',1);}}
+function reflect(x,top,width,length,color,t,intensity=.5){for(let j=0;j<48;j++){const f=j/48,yy=top+f*length,sw=(.2+f*.8)*width;const n=Math.sin(j*9.13+x*.13+t*.5),n2=Math.sin(j*4.7+t*.7);ctx.globalAlpha=intensity*(1-f)*(.35+.65*Math.abs(n));rect(x+n2*width*.35-sw/2,yy,sw*(.3+Math.abs(n)*.7),1+f*2,color);}ctx.globalAlpha=1;}
+function drawSky(p,t){rect(0,0,1600,580,gradient(0,0,0,590,[[0,p.sky[0]],[.55,p.sky[1]],[1,p.sky[2]]]));
+ if(state.mood!=='dawn'){stars.forEach(([x,y,r,a])=>oval(x,y,r,r,`rgba(243,229,200,${(.12+a*.35)*(state.mood==='blue'?.35:1)})`));}
+ const mx=1192,my=state.mood==='dawn'?338:164;
+ glow(mx,my,state.mood==='dawn'?180:120,p.moon,state.mood==='dawn'?.15:.09);oval(mx,my,state.mood==='dawn'?29:23,state.mood==='dawn'?29:23,p.moon);if(state.mood!=='dawn')oval(mx+8,my-6,20,20,p.sky[1]);
+ for(let i=0;i<6;i++){ctx.globalAlpha=.02+i*.002;oval(600+i*203+Math.sin(t*.015+i)*15,240+i*19,400,25,p.haze);}ctx.globalAlpha=1;
+ path([[0,510],[0,430],[100,405],[186,432],[310,378],[420,424],[550,405],[710,447],[825,418],[960,440],[1060,404],[1140,427],[1270,394],[1390,423],[1600,414],[1600,535]],p.back);
+ rect(0,470,1600,110,gradient(0,470,0,580,[[0,p.haze+'00'],[1,p.haze+'25']]));
+}
+function drawTown(p,t){
+ for(const b of buildings){const y=496-b.h;rect(b.x,y,b.w,b.h+20,p.land);if(b.gable)path([[b.x-3,y],[b.x+b.w*.5,y-20],[b.x+b.w+3,y]],p.land);rect(b.x,y,b.w,3,p.back);const r=seeded(Math.floor(b.seed));for(let yy=y+11;yy<493;yy+=16)for(let xx=b.x+7;xx<b.x+b.w-5;xx+=12){const lit=r()>.57;windowLight(xx,yy,4,6,lit,p);if(lit)reflect(xx,525,8,120,p.light,t,.14);}}
+ rect(300,497,1000,13,p.front);rect(300,499,1000,2,p.haze+'44');
+ // An island and its patient lighthouse.
+ path([[1250,515],[1300,498],[1340,477],[1430,481],[1470,509],[1600,520]],p.land);
+ path([[1371,475],[1379,353],[1402,353],[1412,475]],p.back);rect(1375,381,32,7,p.front);rect(1377,438,31,6,p.front);rect(1374,345,34,12,p.front);rect(1378,328,26,18,p.light);rect(1382,328,3,18,p.front);rect(1396,328,3,18,p.front);path([[1373,328],[1391,311],[1409,328]],p.front);rect(1369,351,44,3,p.haze+'80');
+ glow(1391,337,52,p.light,.22);ctx.globalAlpha=.035;path([[1391,337],[790+Math.sin(t*.08)*100,260],[740+Math.sin(t*.08)*100,400]],p.light);ctx.globalAlpha=1;reflect(1391,520,34,210,p.light,t,.37);
+ // Distant fishing boats and navigation lamps.
+ for(let i=0;i<4;i++){const x=510+i*220+Math.sin(t*.018+i)*7,yy=531+i%2*13;path([[x-22,yy],[x+24,yy],[x+13,yy+8],[x-14,yy+8]],p.front);line(x-2,yy,x-2,yy-34,p.back,2);line(x-2,yy-29,x+15,yy-8,p.back);rect(x+6,yy-7,9,5,p.light);glow(x+10,yy-5,12,p.light,.15);}
+}
+function drawWater(p,t){rect(0,510,1600,490,gradient(0,510,0,1000,[[0,p.water[0]],[.28,p.water[1]],[1,p.water[2]]]));
+ const r=seeded(8946);for(let i=0;i<450;i++){const y=518+r()*480,x=r()*1700-50,f=(y-510)/490;const len=4+r()*45*f;const phase=t*(.13+f*.22)+i*9;ctx.globalAlpha=.03+r()*.09;line(x+Math.sin(phase)*8,y,x+len+Math.sin(phase)*8,y,p.haze,.5+f*.9);}ctx.globalAlpha=1;
+ reflect(1190,520,140,370,p.moon,t,state.mood==='dawn'?.43:.2);
+ for(let i=0;i<3;i++){ctx.globalAlpha=.028;oval(760+Math.sin(t*.03+i)*130,546+i*29,650,12,p.haze);}ctx.globalAlpha=1;
+}
+function drawFerry(p,t){
+ const x=w<680?850+Math.sin(t*.035-.5)*40:790+Math.sin(t*.035-.5)*270,y=625+Math.sin(t*.57)*2;
+ // An interrupted wake rather than a perfectly mirrored shape.
+ for(let i=0;i<16;i++){const f=i/16;ctx.globalAlpha=(1-f)*.13;line(x-160-f*130,y+40+i*3,x-105-f*130,y+40+i*3,p.haze,1.1);}ctx.globalAlpha=1;
+ reflect(x,y+38,160,265,p.light,t,.55);reflect(x+112,y+32,20,190,p.light,t,.35);
+ ctx.save();ctx.translate(x,y);ctx.rotate(Math.sin(t*.31)*.004);
+ // hull, rubbed paint, wheelhouse, deck rails
+ path([[-153,10],[-141,39],[108,39],[153,7]],'#142d3b');path([[-151,9],[-147,18],[144,16],[153,7]],'#b8c4be');path([[-142,32],[110,32],[108,39],[-139,39]],'#823f36');line(-137,24,131,24,'#849694',1);
+ path([[-109,5],[-109,-50],[62,-50],[90,-28],[110,-28],[110,5]],'#d1c8ad');rect(-114,-54,184,7,'#2b424d');rect(-109,-5,215,10,'#7e8c85');
+ for(let i=0;i<8;i++){const xx=-99+i*23;windowLight(xx,-43,16,30,true,p);rect(xx+2,-41,12,2,'#fff4ce99');if(i===2||i===5){oval(xx+7,-32,3,4,'#5d5144');rect(xx+4,-28,6,13,'#5d5144');}}
+ path([[73,-43],[89,-27],[107,-27],[107,-9],[73,-9]],'#233e4b');rect(76,-24,12,12,p.light);rect(95,-23,9,11,p.light);
+ rect(-39,-71,25,17,'#53616a');rect(-43,-74,32,5,'#203543');line(22,-54,22,-115,'#c2bba5',2);line(22,-104,63,-68,'#b1ada1');line(3,-75,41,-75,'#b1ada1',2);rect(20,-116,4,5,p.light);glow(22,-115,18,p.light,.2);
+ for(let i=0;i<4;i++){const xx=72+i*10;line(xx,-9,xx,6,'#bac3b8',1.4);}line(69,-9,110,-9,'#c1c9be',1.5);
+ ctx.beginPath();ctx.arc(-123,0,7,0,Math.PI*2);ctx.lineWidth=3;ctx.strokeStyle='#df8d65';ctx.stroke();line(-123,-9,-123,9,'#e2c89d');
+ oval(133,5,3,2,'#e9eac8');glow(134,6,36,p.light,.22);text('M I D N I G H T',-96,29,7,'#e6ddc1','sans-serif');
+ // Smoke thins and drifts; no sudden effects.
+ for(let i=0;i<6;i++){const a=(t*.12+i*.16)%1;ctx.globalAlpha=(1-a)*.035;oval(-26-a*55,-81-a*37,9+a*16,6+a*9,p.haze);}ctx.globalAlpha=1;
+ ctx.restore();
+}
+function drawQuay(p,t){
+ // The near stone quay cuts diagonally into the water.
+ path([[0,718],[311,722],[503,866],[0,1030]],'#263b43');path([[0,731],[310,734],[490,869],[0,1028]],'#1a2d36');path([[0,720],[312,724],[500,862],[487,872],[308,737],[0,734]],'#74807a');line(5,726,308,730,'#a5a595',1.2);
+ path([[0,740],[305,743],[474,868],[0,999]],gradient(0,725,440,970,[[0,'#4a5150'],[.35,p.front],[1,'#1a2932']]));
+ // Wet paving stones.
+ for(let row=0;row<11;row++){const yy=755+row*23;line(0,yy,Math.max(100,320+(yy-750)*.66),yy,'#9fa89b14');for(let col=0;col<7;col++){const xx=col*69+(row%2)*35;line(xx,yy,xx+8,yy+23,'#081c2980');}}
+ for(let i=0;i<25;i++){const r=seeded(i+56),xx=r()*340,yy=765+r()*190;ctx.globalAlpha=.1;line(xx,yy,xx+r()*60,yy,p.light,1.2);}ctx.globalAlpha=1;
+ // Café: weathered siding, sloped roof, warm paned glass.
+ const cx=40,cy=461;rect(cx,cy+35,220,233,'#354447');path([[cx-13,cy+44],[cx+26,cy-21],[cx+220,cy-10],[cx+242,cy+44]],'#1a303c');path([[cx-13,cy+44],[cx+242,cy+44],[cx+237,cy+51],[cx-15,cy+51]],'#64716b');
+ for(let i=0;i<9;i++)line(cx+10+i*25,cy+40,cx+29+i*21,cy-13,'#b2b2a122');
+ for(let yy=cy+58;yy<cy+268;yy+=11)line(cx,yy,cx+220,yy,'#192e3470');
+ rect(cx+18,cy+82,124,131,'#111f27');rect(cx+23,cy+87,114,121,gradient(cx+20,cy+87,cx+140,cy+210,[[0,'#f8ce8c'],[.5,'#d89c60'],[1,'#8b6348']]));
+ // Shelves, hanging lamps, plant silhouettes behind the glass.
+ line(cx+25,cy+153,cx+137,cy+153,'#66513b',4);line(cx+27,cy+181,cx+135,cy+181,'#614732',5);
+ for(let i=0;i<5;i++){rect(cx+31+i*20,cy+144,9,9,'#90613c');oval(cx+35+i*20,cy+143,5,2,'#ab7647');}
+ for(let i=0;i<3;i++){line(cx+43+i*36,cy+89,cx+43+i*36,cy+110,'#675038');path([[cx+34+i*36,cy+114],[cx+43+i*36,cy+107],[cx+52+i*36,cy+114]],'#765036');glow(cx+43+i*36,cy+116,24,'#ffdf9b',.22);}
+ rect(cx+77,cy+86,5,125,'#384443');rect(cx+21,cy+119,117,4,'#48504a');rect(cx+20,cy+207,121,9,'#8b8a6f');
+ rect(cx+161,cy+83,43,184,'#172b32');rect(cx+168,cy+92,29,111,'#b88959');rect(cx+170,cy+95,25,4,'#f1d4a2');rect(cx+180,cy+92,3,113,'#2d3b3a');rect(cx+166,cy+207,34,4,'#788477');oval(cx+196,cy+217,2,2,'#c3ae83');
+ // Burgundy awning and hand-painted name.
+ path([[cx+7,cy+70],[cx+151,cy+70],[cx+164,cy+92],[cx-3,cy+92]],'#914c44');for(let i=0;i<8;i++)path([[cx+9+i*19,cy+71],[cx+15+i*19,cy+71],[cx+22+i*20,cy+91],[cx+15+i*20,cy+91]],'#b67b5c55');rect(cx-3,cy+92,167,7,'#653d3b');
+ rect(cx+29,cy+49,168,28,'#1b3037');rect(cx+31,cy+51,164,24,'#cbb89519');text('THE NIGHT SHIFT',cx+112,cy+67,11,'#e7c998','Georgia','center');
+ glow(cx+82,cy+158,155,'#efb177',.15);reflect(cx+94,742,75,190,p.light,t,.24);
+ // Step, chalkboard, flower pot.
+ rect(cx+147,cy+268,72,8,'#8b8c77');rect(cx+143,cy+276,81,5,'#5b6b62');path([[cx+110,cy+228],[cx+135,cy+228],[cx+142,cy+278],[cx+106,cy+278]],'#19303a');path([[cx+114,cy+233],[cx+131,cy+233],[cx+135,cy+270],[cx+112,cy+270]],'#4d6261');text('tea',cx+121,cy+247,8,'#e6d7b8','Georgia','center');text('all night',cx+122,cy+260,5,'#e6d7b8','Georgia','center');
+ rect(cx-1,cy+244,23,30,'#785a49');for(let i=0;i<7;i++){const xx=cx+10+Math.sin(i*9)*14;line(cx+10,cy+249,xx,cy+216-i%3*7,'#6c8064',2);oval(xx,cy+215-i%3*7,4,8,'#82906e');}
+ // Dock lamp and its pool of warmth.
+ const lx=333,ly=689;rect(lx-3,ly-150,6,184,'#142b36');rect(lx-10,ly+31,20,6,'#4d625f');line(lx,ly-148,lx+35,ly-148,'#62756e',3);path([[lx+24,ly-144],[lx+35,ly-154],[lx+47,ly-144]],'#233943');rect(lx+28,ly-143,15,16,'#edc88d');rect(lx+30,ly-143,2,16,'#6b6a52');path([[lx+27,ly-126],[lx+44,ly-126],[lx+41,ly-123],[lx+30,ly-123]],'#293c40');glow(lx+35,ly-135,92,'#f9ca83',.2);oval(lx+35,ly+65,76,7,'#dcb77814');reflect(lx+42,ly+70,42,200,p.light,t,.25);
+ // Bicycle leaned against the café.
+ const ax=215,ay=749;for(const xx of [ax,ax+56]){ctx.beginPath();ctx.arc(xx,ay,18,0,Math.PI*2);ctx.strokeStyle='#a9aea280';ctx.lineWidth=2;ctx.stroke();ctx.beginPath();ctx.arc(xx,ay,16,0,Math.PI*2);ctx.strokeStyle='#122735';ctx.lineWidth=1.5;ctx.stroke();}
+ path([[ax,ay],[ax+16,ay-28],[ax+30,ay],[ax,ay]],null,'#9d886c',2);path([[ax+16,ay-28],[ax+45,ay-28],[ax+30,ay],[ax+16,ay-28]],null,'#9d886c',2);line(ax+43,ay-36,ax+56,ay,'#9d886c',2);line(ax+43,ay-36,ax+51,ay-40,'#c1bba4',2);line(ax+16,ay-28,ax+13,ay-36,'#9d886c',2);line(ax+8,ay-37,ax+21,ay-37,'#172c36',4);
+ // Cat curled up by the last warm door.
+ oval(286,736,12,7,'#ba986c');oval(295,731,5,5,'#ba986c');path([[291,728],[292,722],[295,728]],'#ba986c');path([[296,728],[300,723],[300,731]],'#ba986c');ctx.beginPath();ctx.arc(277,733,9,Math.PI*.5,Math.PI*1.8);ctx.lineWidth=3;ctx.strokeStyle='#ba986c';ctx.stroke();
+ // Near mooring posts, hanging rope and sea grass.
+ for(const [px,py,ph] of [[410,839,53],[83,965,71],[1513,950,76]]){rect(px-9,py-ph,18,ph,'#142a34');rect(px-12,py-ph,24,7,'#7f8980');rect(px-6,py-ph+8,3,ph-10,'#82908222');oval(px,py,15,3,'#06192780');for(let i=0;i<3;i++)line(px-10,py-ph+12+i*4,px+11,py-ph+13+i*4,'#b7a58a',2);}
+ ctx.beginPath();ctx.moveTo(83,912);ctx.quadraticCurveTo(265,925,410,805);ctx.lineWidth=3;ctx.strokeStyle='#c2b391';ctx.stroke();
+ for(let i=0;i<18;i++){const xx=1520+i*5;path([[xx,1000],[xx-5+Math.sin(i*4)*18,939-i%4*12],[xx+3,1000]],'#203b3f');}
+}
+function drawLanterns(p,t){
+ const lights=[{x:1000,y:760,phase:0},{x:1220,y:684,phase:3},{x:610,y:825,phase:7}];
+ for(const l of state.lanterns){const age=t-l.born;if(age<160)lights.push({x:l.x+age*.8,y:l.y-age*.85,phase:l.phase,age});}
+ for(const l of lights){const x=l.x+Math.sin(t*.22+l.phase)*8,y=l.y+Math.sin(t*.5+l.phase)*2,fade=l.age>130?Math.max(0,(160-l.age)/30):1;ctx.globalAlpha=fade;glow(x,y,40,'#f5b870',.19);reflect(x,y+10,19,70,'#f4bf7c',t,.4*fade);ctx.globalAlpha=fade;path([[x-7,y-4],[x+7,y-4],[x+5,y+7],[x-5,y+7]],'#ba7949');rect(x-5,y-13,10,14,gradient(x-5,y-13,x+5,y+1,[[0,'#f4d7a0'],[.5,'#fbc97b'],[1,'#e29b54']]));line(x,y-13,x,y+1,'#9e633a66');oval(x,y-2,2,4,'#ffedb3');ctx.globalAlpha=1;}
+ state.lanterns=state.lanterns.filter(l=>t-l.born<160);
+}
+function drawRain(t){if(!state.rain)return;ctx.save();ctx.globalAlpha=.09;for(const [x,y,len,s] of rainLines){const yy=((y+t*(100+s*90))%1200)-100,xx=x-yy*.13;line(xx,yy,xx-4,yy+len,'#d0e2e6',.6);}ctx.globalAlpha=1;
+ // Stationary beads on the imaginary window, gently slipping.
+ for(const [x,y,r,phase] of panes){const yy=(y+t*(.8+r*.5)+phase)%1100-50;oval(x,yy,r,r*1.7,'#adc2c80b');ctx.beginPath();ctx.ellipse(x-.3,yy-.5,r*.6,r*1.2,.15,Math.PI,Math.PI*1.45);ctx.strokeStyle='#e9f6f72b';ctx.lineWidth=.6;ctx.stroke();}ctx.restore();}
+function draw(t){const p=palettes[state.mood];ctx.setTransform(dpr,0,0,dpr,0,0);rect(0,0,w,h,p.water[2]);ctx.translate(offX,offY);ctx.scale(scale,scale);drawSky(p,t);drawWater(p,t);drawTown(p,t);drawFerry(p,t);drawQuay(p,t);drawLanterns(p,t);drawRain(t);
+ // Very light fixed grain: deterministic, not flickering.
+ const r=seeded(420);ctx.globalAlpha=.022;for(let i=0;i<1000;i++)rect(r()*1600,r()*1000,1,1,'#fff7d9');ctx.globalAlpha=1;}
+function resize(){w=innerWidth;h=innerHeight;dpr=Math.min(devicePixelRatio||1,1.5);canvas.width=Math.round(w*dpr);canvas.height=Math.round(h*dpr);scale=Math.max(w/1600,h/1000);offX=(w-1600*scale)*(w<680?.54:.5);offY=(h-1000*scale)*.5;draw(state.t);}
+function update(){document.body.dataset.mood=state.mood;document.body.dataset.drift=String(state.drift);document.body.dataset.rain=String(state.rain);document.body.dataset.sound=String(state.sound);document.body.dataset.lanterns=String(state.lanterns.length);$('#drift').setAttribute('aria-pressed',String(state.drift));$('#drift').textContent=state.drift?'Drifting':'Paused';$('#rain').setAttribute('aria-pressed',String(state.rain));$('#weather-label').textContent=state.rain?'a little rain':'clear and quiet';$('#sound').setAttribute('aria-pressed',String(state.sound));$('#sound').textContent=state.sound?'Sound on':'Sound off';$('#volume').disabled=!state.sound;document.querySelectorAll('[data-mood]').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.mood===state.mood)));$('#time-label').textContent=palettes[state.mood].time;$('#caption').textContent=palettes[state.mood].caption;draw(state.t);}
+function tick(now){requestAnimationFrame(tick);if(document.hidden){last=0;return;}if(last&&state.drift)state.t+=Math.min((now-last)/1000,.1);last=now;if(now-drawn<1000/30)return;drawn=now;if(state.drift)draw(state.t);if(audio&&state.sound&&audio.context.state==='running'){const tm=audio.context.currentTime;audio.wave.frequency.setTargetAtTime(128+Math.sin(state.t*.11)*10,tm,2);audio.waveGain.gain.setTargetAtTime(.018+(.5+.5*Math.sin(state.t*.27))*.015,tm,1);}}
+function flash(message){$('#toast').textContent=message;$('#toast').classList.add('show');clearTimeout(toastTimer);toastTimer=setTimeout(()=>$('#toast').classList.remove('show'),8000);}
+function showHide(hidden){state.hidden=hidden;document.body.classList.toggle('ui-hidden',hidden);document.querySelectorAll('.chrome').forEach(el=>{el.inert=hidden;});$('#restore').inert=!hidden;if(hidden)$('#restore').focus();else $('#hide').focus();}
+function createAudio(){const AC=window.AudioContext||window.webkitAudioContext;if(!AC)throw Error('Audio not supported');const context=new AC(),master=context.createGain();master.gain.value=0;master.connect(context.destination);const buffer=context.createBuffer(1,context.sampleRate*4,context.sampleRate),d=buffer.getChannelData(0),noiseRng=seeded(785);let brown=0;for(let i=0;i<d.length;i++){brown=(brown+(noiseRng()*2-1)*.02)/1.02;d[i]=brown*3.5;}
+ const noise=context.createBufferSource();noise.buffer=buffer;noise.loop=true;const filter=context.createBiquadFilter();filter.type='lowpass';filter.frequency.value=620;const sea=context.createGain();sea.gain.value=.38;noise.connect(filter);filter.connect(sea);sea.connect(master);noise.start();
+ const rainSource=context.createBufferSource();const rb=context.createBuffer(1,context.sampleRate*3,context.sampleRate),rd=rb.getChannelData(0);for(let i=0;i<rd.length;i++)rd[i]=(noiseRng()*2-1)*.14;rainSource.buffer=rb;rainSource.loop=true;const rf=context.createBiquadFilter();rf.type='lowpass';rf.frequency.value=2300;const rainGain=context.createGain();rainGain.gain.value=state.rain?.13:0;rainSource.connect(rf);rf.connect(rainGain);rainGain.connect(master);rainSource.start();
+ const wave=context.createOscillator(),waveGain=context.createGain();wave.type='sine';wave.frequency.value=128;waveGain.gain.value=.018;wave.connect(waveGain);waveGain.connect(master);wave.start();return{context,master,sea,rainGain,wave,waveGain,sources:[noise,rainSource,wave]};}
+function audioLevel(){if(!audio)return;const tm=audio.context.currentTime;audio.master.gain.setTargetAtTime(state.sound&&!document.hidden?Number($('#volume').value)/100:0,tm,.35);audio.rainGain.gain.setTargetAtTime(state.rain?.13:0,tm,.6);}
+let togglingSound=false;
+async function toggleSound(){if(togglingSound)return;togglingSound=true;try{if(!audio)audio=createAudio();if(!state.sound){await audio.context.resume();state.sound=true;}else state.sound=false;audioLevel();update();}catch{state.sound=false;update();flash('Sound is unavailable in this browser. The harbour is still yours.');}finally{togglingSound=false;}}
+function toggleDrift(){state.drift=!state.drift;last=0;update();}
+function toggleRain(){state.rain=!state.rain;audioLevel();update();}
+function launchLantern(){if(state.lanterns.length>=24)state.lanterns.shift();const x=w<680?800:760+Math.random()*300;state.lanterns.push({x,y:820,born:state.t,phase:Math.random()*7});const thought=$('#thought').value.trim().slice(0,100);$('#thought').value='';update();flash(thought?'“'+thought+'”':'A little light, on its way.');$('#announcement').textContent='Your lantern is on the water. Nothing was sent or saved.';}
+$('#drift').addEventListener('click',toggleDrift);$('#rain').addEventListener('click',toggleRain);$('#sound').addEventListener('click',toggleSound);$('#volume').addEventListener('input',audioLevel);
+document.querySelectorAll('[data-mood]').forEach(b=>b.addEventListener('click',()=>{state.mood=b.dataset.mood;update();}));
+$('#lantern').addEventListener('click',()=>$('#lantern-dialog').showModal());$('#help').addEventListener('click',()=>$('#help-dialog').showModal());
+$('#lantern-form').addEventListener('submit',e=>{if(e.submitter?.value==='launch')launchLantern();else $('#thought').value='';});$('#lantern-dialog').addEventListener('close',()=>{$('#thought').value='';});
+$('#hide').addEventListener('click',()=>showHide(true));$('#restore').addEventListener('click',()=>showHide(false));
+$('#fullscreen').addEventListener('click',async()=>{try{if(document.fullscreenElement)await document.exitFullscreen();else await document.documentElement.requestFullscreen();}catch{flash('Full screen is not available in this browser.');}});
+document.addEventListener('fullscreenchange',()=>$('#fullscreen').setAttribute('aria-label',document.fullscreenElement?'Leave full screen':'Enter full screen'));
+document.addEventListener('keydown',e=>{if(e.altKey||e.ctrlKey||e.metaKey||e.repeat||document.querySelector('dialog[open]')||e.target.closest('input,textarea,[contenteditable]'))return;const k=e.key.toLowerCase();if(k===' '){if(e.target.closest('button'))return;e.preventDefault();toggleDrift();}else if(k==='m')toggleSound();else if(k==='r')toggleRain();else if(k==='h')showHide(!state.hidden);});
+document.addEventListener('visibilitychange',()=>{last=0;audioLevel();if(audio){if(document.hidden)audio.context.suspend().catch(()=>{});else if(state.sound)audio.context.resume().then(audioLevel).catch(()=>{});}if(!document.hidden)draw(state.t);});
+motionQuery.addEventListener('change',e=>{if(e.matches){state.drift=false;update();}});
+addEventListener('resize',resize);addEventListener('pageshow',e=>{if(e.persisted)update();});addEventListener('pagehide',()=>{clearTimeout(toastTimer);if(audio){audio.sources.forEach(s=>{try{s.stop();}catch{}});audio.context.close().catch(()=>{});audio=null;state.sound=false;}});
+resize();update();requestAnimationFrame(tick);
+})();
+</script>
+</body>
+</html>
