@@ -1,0 +1,65 @@
+MIDNIGHT FERRY — v1.0
+A small window elsewhere.
+
+START
+1. Extract the ZIP (do not run the file from inside the ZIP viewer).
+2. Open Midnight-Ferry.html in a current desktop Chromium/Chrome browser.
+3. That's it. No server, installation, account or connection is needed.
+
+Sound starts OFF. Click Sound off to enable it, then adjust the volume.
+Start low; use your normal device volume control too.
+
+CONTROLS
+Midnight / Blue hour / First light — choose a palette.
+Rain — toggle the rain and its sound layer.
+Drifting / Paused — pause or resume visual motion; audio is separate.
+Float a lantern — send a little light across the harbour.
+Your thought is optional. A blank lantern is welcome too.
+? — about and keyboard help.
+Top-right eye — hide the interface; Show controls brings it back.
+Top-right full-screen icon — desktop full screen, where supported.
+
+KEYBOARD
+Space: pause/resume visuals (outside buttons, inputs and dialogs).
+M: sound on/off. R: rain. H: hide/show the interface.
+Escape: close a dialog or leave full screen.
+Tab: move between controls. Enter/Space: activate the focused button.
+Shortcuts do not intercept typing or operate while a dialog is open.
+
+PRIVACY
+The app makes no network requests and writes no app storage or cookies.
+A thought is displayed briefly, never uploaded, and forgotten on refresh or
+closing the page. There is no journal or recoverable saved message.
+Your browser, extensions and operating system are outside the app's control;
+they may retain normal browsing history, screenshots or session information.
+Do not use a shared or monitored device for anything sensitive.
+
+MOTION AND BATTERY
+A reduced-motion system preference starts the harbour paused.
+Animation and audio rest while the tab is hidden. To stop completely,
+close the tab. A paused picture can still have audio if you enabled it.
+Lanterns drift for a few minutes of animation time, then fade; pausing
+also pauses their journey. Refresh starts a fresh harbour.
+
+COMPATIBILITY
+Verified in desktop Chromium 152 on Linux, including 1600x1000 and an
+emulated 390x844 viewport. This is not a real-phone/device certification.
+Other browsers and operating systems have not been verified for v1.0.
+On phones, opening a local HTML file depends on the OS/browser; desktop
+is the supported starting point. Full screen is hidden on narrow layouts.
+Requires JavaScript and a canvas-capable browser. No downloaded assets.
+
+WHAT THIS IS
+A small ambient digital artwork, not a game with objectives, an installed
+wallpaper, a recording of a real place, or a health/sleep treatment.
+No subscription. No AI model calls at runtime.
+
+WHAT YOU RECEIVE
+Midnight-Ferry.html — the complete, self-contained artwork.
+QUICK-START.txt — this guide.
+PERSONAL-USE.txt — the usage terms.
+
+CREDITS / PROVENANCE
+Created with AI code assistance. Scene illustration is procedural Canvas 2D;
+sound is synthesized with Web Audio. No external images, recordings, fonts
+or third-party code libraries are bundled.
